@@ -35,14 +35,6 @@ func main() {
 		panic(fmt.Sprintf("error wrapping: %v", err))
 	}
 
-	bootstrap, err := core.NewNode(context.TODO(), &core.BuildCfg{Online: true})
-	if err != nil {
-		panic(fmt.Sprintf("error new node: %v", err))
-	}
-
-	c, _ := bootstrap.Repo.Config()
-	log.Infof("bootstrap: %v", c.Addresses)
-
 	if *shouldPut {
 
 		log.Infof("putting node")
