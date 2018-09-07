@@ -69,10 +69,6 @@ func main() {
 			log.Fatalf("Failed to start IPFS node: %v", err)
 		}
 
-		log.Info("finding providers")
-		peers, _ := node2.DHT.FindProviders(ctx, cNode.Cid())
-		log.Infof("peers found: %d", len(peers))
-
 		log.Infof("getting cnode from 2: %v\n", cNode.Cid().String())
 
 		rNode, err := node2.DAG.Get(context.TODO(), cNode.Cid())
